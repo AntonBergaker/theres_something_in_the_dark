@@ -1,0 +1,1 @@
+part_emitter_region(system, emitter, oCamera.x0, oCamera.x1, oCamera.y0-100, oCamera.y0-200, ps_shape_line, ps_distr_linear);
