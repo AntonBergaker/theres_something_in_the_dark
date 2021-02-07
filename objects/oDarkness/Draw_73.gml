@@ -2,7 +2,7 @@
 timer++;
 
 if (!surface_exists(surf)) {
-	surf = surface_create(oCamera.width, oCamera.height);	
+	surf = surface_create(oCamera.width+2, oCamera.height+2);	
 }
 
 if (surface_exists(surf)) {
@@ -58,5 +58,5 @@ if (surface_exists(surf)) {
 	
 	surface_reset_target();
 	
-	draw_surface(surf, oCamera.x0, oCamera.y0);
+	draw_surface(surf, oCamera.x0-1, oCamera.y0-1);
 }

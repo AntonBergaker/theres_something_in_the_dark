@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"sFeather","path":"sprites/sFeather/sFeather.yy",},"order":4,},
+    {"id":{"name":"keyboard_check_pressed_once","path":"scripts/keyboard_check_pressed_once/keyboard_check_pressed_once.yy",},"order":5,},
     {"id":{"name":"sStick","path":"sprites/sStick/sStick.yy",},"order":13,},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},"order":3,},
     {"id":{"name":"oFire","path":"objects/oFire/oFire.yy",},"order":0,},

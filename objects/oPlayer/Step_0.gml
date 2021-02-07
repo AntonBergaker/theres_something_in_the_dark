@@ -59,7 +59,8 @@ if (place_meeting(_nx, _ny, oSolid)) {
 
 
 canLightNewTorch = hasTorch && torchFuel < 30 && sticks > 0;
-if (canLightNewTorch && keyboard_check_pressed(ord("Q"))) {
+
+if (canLightNewTorch && keyboard_check_pressed_once("Q")) {
 	sticks--;
 	torchFuel = 60;
 }
@@ -71,7 +72,12 @@ if (_nearestFire != noone && _nearestFire.playerCanDeposit) {
 	canStartNewFire = false;
 }
 
-if (canStartNewFire && keyboard_check_pressed(ord("E"))) {
+var _nearestStick = instance_nearest(x, y, oStick);
+if (_nearestStick != noone && _nearestStick.canPickUp) {
+	canStartNewFire = false;	
+}
+
+if (canStartNewFire && keyboard_check_pressed_once("E")) {
 	instance_create_depth(x, y, 0, oFire);
 	sticks-=3;
 }
