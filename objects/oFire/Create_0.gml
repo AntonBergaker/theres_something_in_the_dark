@@ -7,4 +7,6 @@ playerCanIgnite = false; ///@is {bool}
 playerCanDeposit = false; ///@is {bool}
 torchTimer = 0; ///@is {number}
 
+sound = noone; ///@is {sound}
+
 depth = -y;

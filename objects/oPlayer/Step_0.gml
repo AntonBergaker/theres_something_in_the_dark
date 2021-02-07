@@ -1,8 +1,13 @@
 
+if (!audio_is_playing(sndRain)) {
+	audio_play_sound(sndRain,0, true);
+}
+
 if (dead) {
 	hasTorch = false;
 	displayLightStrength = 0;
 	displayLightRange = 0;
+	deathTimer++;
 	exit;
 }
 
@@ -26,7 +31,7 @@ heat -= 1/60;
 if (instance_exists(_closestFire)) {
 	heat += clamp(_closestFire.displayLightStrength*(3 - point_distance(x, y, _closestFire.x, _closestFire.y)/120), 0, 1 )/10;
 }
-show_debug_message(heat);
+
 heat = clamp(heat, 0, 60);
 
 if (heat <= 0) {
@@ -63,6 +68,7 @@ canLightNewTorch = hasTorch && torchFuel < 30 && sticks > 0;
 if (canLightNewTorch && keyboard_check_pressed_once("Q")) {
 	sticks--;
 	torchFuel = 60;
+	audio_play_sound(sndMatch, 1, false);
 }
 
 canStartNewFire = hasTorch && sticks >= 3;
@@ -78,6 +84,7 @@ if (_nearestStick != noone && _nearestStick.canPickUp) {
 }
 
 if (canStartNewFire && keyboard_check_pressed_once("E")) {
+	audio_play_sound(sndMatch, 1, false);
 	instance_create_depth(x, y, 0, oFire);
 	sticks-=3;
 }

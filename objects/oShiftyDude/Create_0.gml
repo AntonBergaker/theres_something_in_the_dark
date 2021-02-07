@@ -15,7 +15,7 @@ function selectDestination() {
 		var _lightable/*:ILight*/ = global.ILightables[i];
 		with (_lightable) {
 			if (point_distance(x, y, other.x, other.y) < displayLightRange*280) {
-				_insideLight = _lightable;
+				_insideLight = id;
 				break;
 			}
 		}

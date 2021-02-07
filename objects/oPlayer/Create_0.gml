@@ -8,6 +8,8 @@ hasTorch = false; ///@is {bool}
 torchFuel = 0; ///@is {number}
 torchTimer = 0; ///@is {number}
 
+deathTimer = 0; ///@is {number}
+
 dead = false; ///@is {bool}
 eaten = false; ///@is {bool}
 

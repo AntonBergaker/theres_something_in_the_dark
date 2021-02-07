@@ -5,13 +5,22 @@ if (!surface_exists(surf)) {
 	surf = surface_create(oCamera.width+2, oCamera.height+2);	
 }
 
+var _lightStrength = 0;
+if (lightningStrength > 0) {
+	if (lightningStrength < 0.5) {
+		_lightStrength = 1 - lightningStrength*2;
+	} else {
+		_lightStrength = lightningStrength*2;
+	}
+}
+
 if (surface_exists(surf)) {
 	
 	surface_set_target(surf);
 	camera_apply(oCamera.cam);
 
 	
-	draw_clear_alpha(c_black, 0.99);
+	draw_clear_alpha(c_black, 0.99 - _lightStrength/2);
 	
 	for (var i=0;i < array_length(global.ILightables); i++) {
 		var _lightable/*:ILight*/ = global.ILightables[i];
@@ -59,4 +68,10 @@ if (surface_exists(surf)) {
 	surface_reset_target();
 	
 	draw_surface(surf, oCamera.x0-1, oCamera.y0-1);
+	if (lightningStrength > 0) {
+		draw_set_alpha(lightningStrength/3);
+		draw_set_color(c_white)
+		draw_rectangle(oCamera.x0-1, oCamera.y0-1, oCamera.x1+1, oCamera.y1+1, false);
+		draw_set_alpha(1);
+	}
 }

@@ -25,4 +25,4 @@ part_type_death(particle,1,puddle);
 
 emitter = part_emitter_create(system);
 part_emitter_region(system, emitter, 0, 1920, -100, -200, ps_shape_line, ps_distr_linear);
-part_emitter_stream(system, emitter, particle, 5);
+part_emitter_stream(system, emitter, particle, 15);
